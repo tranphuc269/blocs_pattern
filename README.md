@@ -1,5 +1,6 @@
 # Flutter Story App
 This is a story app implemented with Flutter.
+Implements bloc pattern.
 
 Inspired by https://github.com/devefy/Flutter-Story-App-UI
 

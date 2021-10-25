@@ -8,7 +8,7 @@ import 'package:flutter_story_app/repositories/stories_repository.dart';
 class AllStoriesListBloc extends Bloc<AllStoriesListEvent, AllStoriesListState> {
   final StoriesRepository storiesRepository;
 
-  AllStoriesListBloc({@required this.storiesRepository});
+  AllStoriesListBloc({required this.storiesRepository}) : super(AllStoriesListFetchingState());
 
   @override
   AllStoriesListState get initialState => AllStoriesListFetchingState();
@@ -17,7 +17,7 @@ class AllStoriesListBloc extends Bloc<AllStoriesListEvent, AllStoriesListState> 
   Stream<AllStoriesListState> mapEventToState(AllStoriesListEvent event) async* {
     final currentState = state;
     try {
-      List<Story> stories;
+      List<Story> stories = [];
       if (event is AllStoriesListFetchList) {
         if (event.offset == "0"){
           yield AllStoriesListLoadingState();
@@ -45,7 +45,7 @@ class AllStoriesListBloc extends Bloc<AllStoriesListEvent, AllStoriesListState> 
       }
     } catch (error) {
       print(error);
-      yield AllStoriesListErrorState(error: error);
+      yield AllStoriesListErrorState(error: error.toString());
     }
   }
 }

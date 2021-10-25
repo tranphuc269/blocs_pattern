@@ -8,7 +8,7 @@ part 'rest_client.g.dart';
 
 @RestApi(baseUrl: API_BASE_URL)
 abstract class RestClient {
-  factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
+  factory RestClient(Dio dio, {required String baseUrl}) => _RestClient(dio,baseUrl : baseUrl);
 
   @GET(ALL_TAGS_URL)
   Future<List<Tag>> getAllTags();

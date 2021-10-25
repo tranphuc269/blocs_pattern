@@ -45,7 +45,7 @@ class StoryApp extends StatelessWidget {
               ..add(FetchTagsList()),
           ),
           BlocProvider<PageControllerBloc>(
-            create: (BuildContext context) => PageControllerBloc(),
+            create: (BuildContext context) => PageControllerBloc(0),
           ),
         ],
         child: HomePage(),

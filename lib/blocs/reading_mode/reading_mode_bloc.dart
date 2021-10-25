@@ -3,6 +3,8 @@ import 'package:flutter_story_app/blocs/reading_mode/reading_mode_event.dart';
 import 'package:flutter_story_app/blocs/reading_mode/reading_mode_state.dart';
 
 class ReadingModeBloc extends Bloc<ReadingModeEvent, ReadingModeState> {
+  ReadingModeBloc() : super(DarkMode());
+
   @override
   ReadingModeState get initialState => DarkMode();
 

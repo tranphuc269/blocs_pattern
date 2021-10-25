@@ -5,6 +5,8 @@ import 'package:flutter_story_app/utils/shared_preferences.dart';
 
 class FavoriteCheckerBloc
     extends Bloc<FavoriteCheckerEvent, FavoriteCheckerState> {
+  FavoriteCheckerBloc() : super(InitialNullState());
+
   @override
   FavoriteCheckerState get initialState => InitialNullState();
 
@@ -16,7 +18,7 @@ class FavoriteCheckerBloc
       yield HasValueState(isFavorite);
     }
     if (event is DeleteValueEvent) {
-      yield HasValueState(null);
+      yield HasValueState(true);
     }
   }
 }

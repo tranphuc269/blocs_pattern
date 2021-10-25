@@ -27,7 +27,7 @@ class _TextFieldSearchState extends State<TextFieldSearch> {
             controller: _textEditingControllerKeyword,
             decoration: InputDecoration.collapsed(
               hintText: "Search...",
-              hintStyle: CustomTheme.mainTheme.textTheme.body2.merge(
+              hintStyle: CustomTheme.mainTheme.textTheme.bodyText2!.merge(
                 TextStyle(
                   color: Colors.white70,
                 ),

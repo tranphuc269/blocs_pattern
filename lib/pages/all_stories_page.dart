@@ -13,7 +13,7 @@ class AllStoriesPage extends StatefulWidget {
   final bool isComingFromTag;
   final String tag;
 
-  const AllStoriesPage({Key key, @required this.isComingFromTag, this.tag})
+  const AllStoriesPage({Key? key, required this.isComingFromTag,required this.tag})
       : super(key: key);
 
   @override
@@ -24,7 +24,7 @@ class _AllStoriesPageState extends State<AllStoriesPage> {
   final _scrollController = ScrollController();
   final _scrollThreshold = 200.0;
 
-  AllStoriesListBloc _allStoriesListBloc;
+  late AllStoriesListBloc _allStoriesListBloc;
 
   @override
   void initState() {
@@ -85,7 +85,7 @@ class _AllStoriesPageState extends State<AllStoriesPage> {
                               widget.isComingFromTag
                                   ? "'${widget.tag.toLowerCase()}' tag"
                                   : "All Stories",
-                              style: CustomTheme.mainTheme.textTheme.title.merge(
+                              style: CustomTheme.mainTheme.textTheme.headline2!.merge(
                                 TextStyle(fontSize: 25),
                               ),
                               overflow: TextOverflow.ellipsis,
@@ -133,7 +133,7 @@ class _AllStoriesPageState extends State<AllStoriesPage> {
                                         child: LoadingIndicator(
                                           indicatorType:
                                               Indicator.ballClipRotateMultiple,
-                                          color: Colors.white70,
+                                          colors: [Colors.white70],
                                         ),
                                       ),
                                     ),
@@ -153,7 +153,7 @@ class _AllStoriesPageState extends State<AllStoriesPage> {
                           height: 130,
                           child: LoadingIndicator(
                             indicatorType: Indicator.ballClipRotateMultiple,
-                            color: Colors.white70,
+                            colors: [Colors.white70],
                           ),
                         ),
                       );

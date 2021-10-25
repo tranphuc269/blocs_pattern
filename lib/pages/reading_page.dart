@@ -9,7 +9,7 @@ import 'package:flutter_story_app/model/story.dart';
 
 class ReadingPage extends StatefulWidget {
   final Story story;
-  const ReadingPage({Key key, this.story}) : super(key: key);
+  const ReadingPage({Key? key,required this.story}) : super(key: key);
   @override
   State<StatefulWidget> createState() => ReadingPageState();
 }
@@ -37,7 +37,7 @@ class ReadingPageState extends State<ReadingPage> {
                       return Container(
                         child: Text(
                           widget.story.story,
-                          style: Theme.of(context).textTheme.body1.merge(
+                          style: Theme.of(context).textTheme.bodyText1!.merge(
                               TextStyle(
                                   color: _mode.textColor, fontSize: state)),
                           textAlign: TextAlign.justify,

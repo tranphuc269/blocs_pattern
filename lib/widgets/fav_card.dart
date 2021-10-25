@@ -8,7 +8,7 @@ import 'package:flutter_story_app/utils/theme.dart';
 class CardFav extends StatefulWidget {
   final Story story;
 
-  const CardFav({Key key, this.story}) : super(key: key);
+  const CardFav({Key? key,required this.story}) : super(key: key);
 
   @override
   _CardFavState createState() => _CardFavState();
@@ -69,12 +69,12 @@ class _CardFavState extends State<CardFav> {
                           children: <Widget>[
                             Text(
                               widget.story.title,
-                              style: CustomTheme.mainTheme.textTheme.title.merge(TextStyle(fontSize: 20)),
+                              style: CustomTheme.mainTheme.textTheme.headline2!.merge(TextStyle(fontSize: 20)),
                               maxLines: 2,
                             ),
                             Text(
                               "by " + widget.story.author,
-                              style: CustomTheme.mainTheme.textTheme.body1,
+                              style: CustomTheme.mainTheme.textTheme.bodyText1,
                               maxLines: 2,
                             ),
 //                            SingleChildScrollView(

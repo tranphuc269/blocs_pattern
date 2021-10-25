@@ -7,12 +7,12 @@ class SharedPreference {
     if (prefs.getStringList(STORY_IDS_KEY) == null) {
       return false;
     }
-    return prefs.getStringList(STORY_IDS_KEY).contains(id.toString());
+    return prefs.getStringList(STORY_IDS_KEY)!.contains(id.toString());
   }
 
   static Future<bool> delete(int id) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> storyIds = prefs.getStringList(STORY_IDS_KEY)
+    List<String> storyIds = prefs.getStringList(STORY_IDS_KEY)!
       ..remove(id.toString());
     await prefs.setStringList(STORY_IDS_KEY, storyIds);
     return true;
@@ -20,14 +20,14 @@ class SharedPreference {
 
   static Future<List<String>> getAllStoryIds() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getStringList(STORY_IDS_KEY);
+    return prefs.getStringList(STORY_IDS_KEY)!;
   }
 
   static Future<bool> storeStoryId(int id) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> storyIds = prefs.getStringList(STORY_IDS_KEY);
+    List<String> storyIds = prefs.getStringList(STORY_IDS_KEY)!;
     if (storyIds == null) {
-      storyIds = new List();
+      storyIds = [];
     }
     storyIds.add(id.toString());
     await prefs.setStringList(STORY_IDS_KEY, storyIds.toSet().toList());

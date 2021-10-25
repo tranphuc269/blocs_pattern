@@ -5,7 +5,7 @@ import 'package:flutter_story_app/repositories/rest_client.dart';
 class TagsRepository {
   final RestClient client;
 
-  TagsRepository({@required this.client});
+  TagsRepository({required this.client});
 
   Future<List<Tag>> getAllTags() {
     return client.getAllTags();

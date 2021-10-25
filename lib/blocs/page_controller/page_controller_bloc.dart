@@ -3,6 +3,8 @@ import 'package:flutter_story_app/blocs/page_controller/page_controller_event.da
 import 'package:flutter_story_app/utils/constants.dart';
 
 class PageControllerBloc extends Bloc<PageControllerEvent, double> {
+  PageControllerBloc(double initialState) : super(initialState);
+
   @override
   double get initialState => (TRENDING_LIST_ITEM_COUNT - 1).toDouble();
 
@@ -10,6 +12,8 @@ class PageControllerBloc extends Bloc<PageControllerEvent, double> {
   Stream<double> mapEventToState(PageControllerEvent event) async* {
     if (event is PageControllerChangePage) {
       yield event.pageNumber;
+    }else{
+      yield 0;
     }
   }
 }

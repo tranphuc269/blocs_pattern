@@ -5,7 +5,7 @@ import 'package:flutter_story_app/repositories/rest_client.dart';
 class StoriesRepository {
   final RestClient client;
 
-  StoriesRepository({@required this.client});
+  StoriesRepository({required this.client});
 
   Future<List<Story>> getFavoriteStories(String array) {
     return client.getFavoriteStories(array);

@@ -19,7 +19,7 @@ import '../utils/constants.dart';
 
 class StoryPage extends StatefulWidget {
   final Story story;
-  const StoryPage({Key key, @required this.story}) : super(key: key);
+  const StoryPage({Key? key, required this.story}) : super(key: key);
   @override
   State<StatefulWidget> createState() => _StoryPageState();
 }
@@ -60,7 +60,7 @@ class _StoryPageState extends State<StoryPage> {
         intro,
         style: Theme.of(context)
             .textTheme
-            .body1
+            .bodyText1!
             .merge(TextStyle(color: Colors.white70, fontSize: 16)),
         textAlign: TextAlign.justify,
       ),
@@ -80,7 +80,7 @@ class _StoryPageState extends State<StoryPage> {
             "Read",
             style: Theme.of(context)
                 .textTheme
-                .body1
+                .bodyText1!
                 .merge(TextStyle(color: Colors.white70, fontSize: 16)),
           ),
           shape: new RoundedRectangleBorder(
@@ -107,7 +107,7 @@ class _StoryPageState extends State<StoryPage> {
             children: <Widget>[
               Text(
                 widget.story.title,
-                style: Theme.of(context).textTheme.title.merge(
+                style: Theme.of(context).textTheme.headline2!.merge(
                       TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white70,
@@ -119,7 +119,7 @@ class _StoryPageState extends State<StoryPage> {
                 "by " + widget.story.author,
                 style: Theme.of(context)
                     .textTheme
-                    .subhead
+                    .bodyText2!
                     .merge(TextStyle(color: Colors.white70)),
                 maxLines: 2,
               )
@@ -134,7 +134,7 @@ class _StoryPageState extends State<StoryPage> {
     );
   }
 
-  Widget _buildWidgetBottomSheet({BuildContext context}) {
+  Widget _buildWidgetBottomSheet({required BuildContext context}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -144,7 +144,7 @@ class _StoryPageState extends State<StoryPage> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: StoryChips(
-            strTags: widget.story?.tags ?? null,
+            strTags: widget.story.tags,
             shouldShuffle: true,
           ),
         ),

@@ -11,9 +11,9 @@ class SearchListBloc extends Bloc<SearchListEvent, SearchListState> {
   final NetworkInfo networkInfo;
 
   SearchListBloc({
-    @required this.storiesRepository,
-    @required this.networkInfo,
-  });
+    required this.storiesRepository,
+    required this.networkInfo,
+  }) : super(SearchListEmptyState());
 
   @override
   SearchListState get initialState => SearchListEmptyState();
@@ -21,7 +21,7 @@ class SearchListBloc extends Bloc<SearchListEvent, SearchListState> {
   @override
   Stream<SearchListState> mapEventToState(SearchListEvent event) async* {
     try {
-      List<Story> stories;
+      List<Story> stories=[];
 
       if (event is FetchSearchList) {
         yield SearchListLoadingState();
@@ -29,7 +29,7 @@ class SearchListBloc extends Bloc<SearchListEvent, SearchListState> {
       }
 
       if (event is DeleteList) {
-        stories = new List();
+        stories = [];
       }
 
       if (stories.length == 0) {
@@ -38,7 +38,7 @@ class SearchListBloc extends Bloc<SearchListEvent, SearchListState> {
         yield SearchListFetchedState(stories: stories);
       }
     } catch (error) {
-      yield SearchListErrorState(error: error);
+      yield SearchListErrorState(error: error.toString());
     }
   }
 }

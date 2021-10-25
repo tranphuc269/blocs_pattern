@@ -11,9 +11,9 @@ class TrendingListBloc extends Bloc<TrendingListEvent, TrendingListState> {
   final NetworkInfo networkInfo;
 
   TrendingListBloc({
-    @required this.storiesRepository,
-    @required this.networkInfo,
-  });
+    required this.storiesRepository,
+    required this.networkInfo,
+  }) : super(TrendingListFetchingState());
 
   @override
   TrendingListState get initialState => TrendingListFetchingState();
@@ -21,7 +21,7 @@ class TrendingListBloc extends Bloc<TrendingListEvent, TrendingListState> {
   @override
   Stream<TrendingListState> mapEventToState(TrendingListEvent event) async* {
     try {
-      List<Story> latestStories;
+      List<Story> latestStories = [];
 
       if (event is TrendingListFetchList) {
         yield TrendingListLoadingState();
@@ -35,7 +35,7 @@ class TrendingListBloc extends Bloc<TrendingListEvent, TrendingListState> {
             latestStories: latestStories.reversed.toList());
       }
     } catch (error) {
-      yield TrendingListErrorState(error: error);
+      yield TrendingListErrorState(error: error.toString());
     }
   }
 }

@@ -15,9 +15,9 @@ class StoryChips extends StatelessWidget {
   final int chipsCount;
 
   const StoryChips(
-      {Key key,
-      @required this.strTags,
-      @required this.shouldShuffle,
+      {Key? key,
+      required this.strTags,
+      required this.shouldShuffle,
       this.chipsCount = 3})
       : super(key: key);
 
@@ -27,10 +27,10 @@ class StoryChips extends StatelessWidget {
   }
 
   List<Widget> _buildChips(String strTags, BuildContext context) {
-    List<Color> colors = new List()..addAll(TAG_COLORS);
+    List<Color> colors = []..addAll(TAG_COLORS);
     if (shouldShuffle) colors.shuffle();
     List<String> tags = strTags.split(',');
-    List<Widget> chips = new List();
+    List<Widget> chips = [];
     for (int i = 0; i < tags.length; i++) {
       if (i == chipsCount) break;
       chips.add(InkWell(
@@ -50,7 +50,7 @@ class StoryChips extends StatelessWidget {
           child: new Chip(
             label: Text(
               tags[i].toLowerCase(),
-              style: CustomTheme.mainTheme.textTheme.body2.merge(
+              style: CustomTheme.mainTheme.textTheme.bodyText2?.merge(
                 TextStyle(
                   color: Colors.white70,
                 ),

@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: Text(
                 'Tags',
-                style: CustomTheme.mainTheme.textTheme.title.merge(TextStyle(
+                style: CustomTheme.mainTheme.textTheme.headline2!.merge(TextStyle(
                   color: Colors.white,
                 )),
               ),
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: Text(
                 'Favourites',
-                style: CustomTheme.mainTheme.textTheme.title.merge(TextStyle(
+                style: CustomTheme.mainTheme.textTheme.headline2!.merge(TextStyle(
                   color: Colors.white,
                 )),
               ),
@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: Text(
                 'All stories',
-                style: CustomTheme.mainTheme.textTheme.title.merge(TextStyle(
+                style: CustomTheme.mainTheme.textTheme.headline2!.merge(TextStyle(
                   color: Colors.white,
                 )),
               ),
@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                   create: (_) => sl<AllStoriesListBloc>()
                     ..add(AllStoriesListFetchList("0")),
                   child: AllStoriesPage(
-                    isComingFromTag: false,
+                    isComingFromTag: false, tag: '',
                   ),
                 );
                 Navigator.pop(context);
@@ -184,7 +184,7 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 Text(
                   "Latest",
-                  style: CustomTheme.mainTheme.textTheme.headline,
+                  style: CustomTheme.mainTheme.textTheme.headline1,
                 ),
                 IconButton(
                   icon: Icon(
@@ -197,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                       create: (_) => sl<AllStoriesListBloc>()
                         ..add(AllStoriesListFetchList("0")),
                       child: AllStoriesPage(
-                        isComingFromTag: false,
+                        isComingFromTag: false, tag: '',
                       ),
                     );
                     Navigator.of(context).push(_createRoute(route));
@@ -235,7 +235,7 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 Text(
                   "Favourites",
-                  style: CustomTheme.mainTheme.textTheme.headline,
+                  style: CustomTheme.mainTheme.textTheme.headline1,
                 ),
                 IconButton(
                   icon: Icon(
@@ -286,7 +286,7 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     child: Text(
                       (tagsList.length - 6).toString() + "+ tags",
-                      style: CustomTheme.mainTheme.textTheme.body2,
+                      style: CustomTheme.mainTheme.textTheme.bodyText2,
                     ),
                   ),
                 ),
@@ -309,7 +309,7 @@ class _HomePageState extends State<HomePage> {
           PageController controller = PageController(initialPage: itemCount);
           controller.addListener(() {
             BlocProvider.of<PageControllerBloc>(context)
-                .add(PageControllerChangePage(controller.page));
+                .add(PageControllerChangePage(controller.page ?? 0));
           });
           return GestureDetector(
             onTap: () {
@@ -353,7 +353,7 @@ class _HomePageState extends State<HomePage> {
               height: 130,
               child: LoadingIndicator(
                 indicatorType: Indicator.ballClipRotateMultiple,
-                color: Colors.white70,
+                colors: [Colors.white70],
               ),
             ),
           );
@@ -368,7 +368,7 @@ class _HomePageState extends State<HomePage> {
       builder: (context, state) {
         if (state is FavoritesListFetchedState) {
           List<Story> stories = state.stories;
-          List<Widget> cards = new List();
+          List<Widget> cards = [];
           for (int i = 0; i < stories.length; i = i + 2) {
             cards.add(
               Row(
@@ -392,7 +392,7 @@ class _HomePageState extends State<HomePage> {
               height: 130,
               child: LoadingIndicator(
                 indicatorType: Indicator.ballClipRotateMultiple,
-                color: Colors.white70,
+                colors: [Colors.white70],
               ),
             ),
           );

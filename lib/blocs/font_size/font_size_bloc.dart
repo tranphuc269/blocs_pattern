@@ -2,6 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_story_app/blocs/font_size/font_size_event.dart';
 
 class FontSizeBloc extends Bloc<FontSizeEvent, double> {
+  FontSizeBloc(double initialState) : super(initialState);
+
   @override
   double get initialState => 16;
 

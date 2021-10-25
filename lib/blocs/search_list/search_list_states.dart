@@ -8,7 +8,7 @@ class SearchListLoadingState extends SearchListState {}
 
 class SearchListErrorState extends SearchListState {
   final String error;
-  SearchListErrorState({@required this.error});
+  SearchListErrorState({required this.error});
 
   @override
   List<Object> get props => [error];
@@ -16,7 +16,7 @@ class SearchListErrorState extends SearchListState {
 
 class SearchListFetchedState extends SearchListState {
   final List<Story> stories;
-  SearchListFetchedState({@required this.stories});
+  SearchListFetchedState({required this.stories});
 
   @override
   List<Object> get props => [stories];

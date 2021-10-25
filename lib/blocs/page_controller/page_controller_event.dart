@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class PageControllerChangePage extends PageControllerEvent {
-  final pageNumber;
+  final double pageNumber;
   PageControllerChangePage(this.pageNumber);
 
   @override

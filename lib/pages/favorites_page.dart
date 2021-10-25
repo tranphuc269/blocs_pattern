@@ -72,7 +72,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                       children: <Widget>[
                         Text(
                           "Favourites",
-                          style: CustomTheme.mainTheme.textTheme.title.merge(
+                          style: CustomTheme.mainTheme.textTheme.headline2!.merge(
                             TextStyle(fontSize: 25),
                           ),
                         ),
@@ -101,7 +101,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
       builder: (context, state) {
         if (state is FavoritesListFetchedState) {
           List<Story> stories = state.stories;
-          List<Widget> cards = new List();
+          List<Widget> cards = [];
           for (int i = 0; i < stories.length; i = i + 2) {
             cards.add(
               Row(
@@ -125,7 +125,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
               height: 130,
               child: LoadingIndicator(
                 indicatorType: Indicator.ballClipRotateMultiple,
-                color: Colors.white70,
+                colors: [Colors.white70],
               ),
             ),
           );

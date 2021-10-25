@@ -72,7 +72,7 @@ class _AllTagsPageState extends State<AllTagsPage> {
                         children: <Widget>[
                           Text(
                             "All tags",
-                            style: CustomTheme.mainTheme.textTheme.title.merge(
+                            style: CustomTheme.mainTheme.textTheme.headline1!.merge(
                               TextStyle(fontSize: 25),
                             ),
                           ),
@@ -130,10 +130,10 @@ class _AllTagsPageState extends State<AllTagsPage> {
   }
 
   List<Widget> _buildChips(String strTags, BuildContext context) {
-    List<Color> colors = new List()..addAll(TAG_COLORS);
+    List<Color> colors = []..addAll(TAG_COLORS);
     colors.shuffle();
     List<String> tags = strTags.split(',');
-    List<Widget> chips = new List();
+    List<Widget> chips = [];
     for (int i = 0; i < tags.length; i++) {
       chips.add(InkWell(
         onTap: () {
@@ -153,7 +153,7 @@ class _AllTagsPageState extends State<AllTagsPage> {
           child: new Chip(
             label: Text(
               tags[i].toLowerCase(),
-              style: CustomTheme.mainTheme.textTheme.body2.merge(
+              style: CustomTheme.mainTheme.textTheme.bodyText2!.merge(
                 TextStyle(
                   color: Colors.white70,
                 ),

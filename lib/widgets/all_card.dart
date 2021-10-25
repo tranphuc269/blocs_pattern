@@ -9,7 +9,7 @@ import 'package:flutter_story_app/widgets/story_chips.dart';
 class CardAll extends StatefulWidget {
   final Story story;
 
-  const CardAll({Key key, this.story}) : super(key: key);
+  const CardAll({Key? key,required this.story}) : super(key: key);
 
   @override
   _CardAllState createState() => _CardAllState();
@@ -70,12 +70,12 @@ class _CardAllState extends State<CardAll> {
                           children: <Widget>[
                             Text(
                               widget.story.title,
-                              style: CustomTheme.mainTheme.textTheme.title.merge(TextStyle(fontSize: 22),),
+                              style: CustomTheme.mainTheme.textTheme.headline2!.merge(TextStyle(fontSize: 22),),
                               maxLines: 2,
                             ),
                             Text(
                               "by " + widget.story.author,
-                              style: CustomTheme.mainTheme.textTheme.body1.merge(TextStyle(fontSize: 16),),
+                              style: CustomTheme.mainTheme.textTheme.bodyText1!.merge(TextStyle(fontSize: 16),),
                               maxLines: 2,
                             ),
                             SingleChildScrollView(

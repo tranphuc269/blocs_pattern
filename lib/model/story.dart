@@ -14,8 +14,16 @@ class Story {
   String title;
   bool isFavourite;
 
-  Story(this.id, this.intro, this.story, this.authorId, this.author,
-      this.images, this.tags, this.title);
+  Story(
+      {required this.id,
+      required this.intro,
+        required this.isFavourite,
+      required this.story,
+      required this.authorId,
+      required this.author,
+      required this.images,
+      required this.tags,
+      required this.title});
 
   factory Story.fromJson(Map<String, dynamic> json) => _$StoryFromJson(json);
 

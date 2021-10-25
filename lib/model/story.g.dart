@@ -7,16 +7,15 @@ part of 'story.dart';
 // **************************************************************************
 
 Story _$StoryFromJson(Map<String, dynamic> json) {
-  return Story(
-    json['id'] as int,
-    json['intro'] as String,
-    json['story'] as String,
-    json['authorId'] as int,
-    json['author'] as String,
-    json['images'] as String,
-    json['tags'] as String,
-    json['title'] as String,
-  )..isFavourite = json['isFavourite'] as bool;
+  return Story(id: json['id'] as int,
+      intro: json['intro'] as String,
+      isFavourite: json['isFavourite'] as bool,
+      story: json['story'] as String,
+      authorId: json['authorId'] as int,
+      author: json['author'] as String,
+      images: json['images'] as String,
+      tags: json['tags'] as String,
+      title: json['title'] as String);
 }
 
 Map<String, dynamic> _$StoryToJson(Story instance) => <String, dynamic>{

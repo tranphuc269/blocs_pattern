@@ -40,7 +40,7 @@ class CardScrollWidget extends StatelessWidget {
             var primaryCardLeft = safeWidth - widthOfPrimaryCard;
             var horizontalInset = primaryCardLeft / 2;
 
-            List<Widget> cardList = new List();
+            List<Widget> cardList = [];
 
             if (state is TrendingListFetchedState) {
               List<Story> latestStories = state.latestStories;
@@ -110,7 +110,7 @@ class CardScrollWidget extends StatelessWidget {
                                           horizontal: 16.0, vertical: 0),
                                       child: Text(
                                         story.title,
-                                        style: CustomTheme.mainTheme.textTheme.title,
+                                        style: CustomTheme.mainTheme.textTheme.headline2,
                                       ),
                                     ),
                                     Padding(
@@ -118,7 +118,7 @@ class CardScrollWidget extends StatelessWidget {
                                           horizontal: 16.0, vertical: 0),
                                       child: Text(
                                         "by " + story.author,
-                                        style: CustomTheme.mainTheme.textTheme.body1,
+                                        style: CustomTheme.mainTheme.textTheme.bodyText1,
                                       ),
                                     ),
                                     Padding(

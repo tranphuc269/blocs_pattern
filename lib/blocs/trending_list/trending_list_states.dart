@@ -16,7 +16,7 @@ class TrendingListLoadingState extends TrendingListState {}
 class TrendingListErrorState extends TrendingListState {
   final String error;
 
-  TrendingListErrorState({@required this.error});
+  TrendingListErrorState({required this.error});
 
   @override
   List<Object> get props => [error];
@@ -25,7 +25,7 @@ class TrendingListErrorState extends TrendingListState {
 class TrendingListFetchedState extends TrendingListState {
   final List<Story> latestStories;
 
-  TrendingListFetchedState({@required this.latestStories});
+  TrendingListFetchedState({required this.latestStories});
 
   @override
   List<Object> get props => [latestStories];

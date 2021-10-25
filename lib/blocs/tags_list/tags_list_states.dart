@@ -6,7 +6,7 @@ class TagsListEmptyState extends TagsListState {}
 
 class TagsListErrorState extends TagsListState {
   final String error;
-  TagsListErrorState({@required this.error});
+  TagsListErrorState({required this.error});
 
   @override
   List<Object> get props => [error];
@@ -14,7 +14,7 @@ class TagsListErrorState extends TagsListState {
 
 class TagsListFetchedState extends TagsListState {
   final List<Tag> tags;
-  TagsListFetchedState({@required this.tags});
+  TagsListFetchedState({required this.tags});
 
   @override
   List<Object> get props => [tags];

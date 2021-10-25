@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 abstract class FavoriteCheckerState extends Equatable {
-  final bool isFavorite = null;
+  final bool isFavorite = true;
   @override
   List<Object> get props => [isFavorite];
 }
@@ -14,7 +14,7 @@ class HasValueState extends FavoriteCheckerState {
 }
 
 class InitialNullState extends FavoriteCheckerState {
-  final bool isFavorite = null;
+  final bool isFavorite = true;
   @override
   List<Object> get props => [isFavorite];
 }

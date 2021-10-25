@@ -8,7 +8,7 @@ import 'package:flutter_story_app/widgets/story_chips.dart';
 class CardSearch extends StatefulWidget {
   final Story story;
 
-  const CardSearch({Key key, this.story}) : super(key: key);
+  const CardSearch({Key? key,required this.story}) : super(key: key);
 
   @override
   _CardSearchState createState() => _CardSearchState();
@@ -71,7 +71,7 @@ class _CardSearchState extends State<CardSearch> {
                               widget.story.title,
                               style: Theme.of(context)
                                   .textTheme
-                                  .title
+                                  .headline2!
                                   .merge(TextStyle(
                                     color: Colors.white,
                                   )),
@@ -81,7 +81,7 @@ class _CardSearchState extends State<CardSearch> {
                               "by " + widget.story.author,
                               style: Theme.of(context)
                                   .textTheme
-                                  .body1
+                                  .bodyText1!
                                   .merge(TextStyle(
                                     fontSize: 15,
                                     color: Colors.white,

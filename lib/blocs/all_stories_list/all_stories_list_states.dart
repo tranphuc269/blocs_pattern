@@ -16,7 +16,7 @@ class AllStoriesListLoadingState extends AllStoriesListState {}
 class AllStoriesListErrorState extends AllStoriesListState {
   final String error;
 
-  AllStoriesListErrorState({@required this.error});
+  AllStoriesListErrorState({required this.error});
 
   @override
   List<Object> get props => [error];
@@ -29,8 +29,8 @@ class AllStoriesListFetchedState extends AllStoriesListState {
   AllStoriesListFetchedState(this.stories, this.hasReachedMax);
 
   AllStoriesListFetchedState copyWith({
-    List<Story> stories,
-    bool hasReachedMax,
+    required List<Story> stories,
+    required bool hasReachedMax,
   }) {
     return AllStoriesListFetchedState(
       stories ?? this.stories,

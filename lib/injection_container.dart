@@ -1,4 +1,3 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_story_app/blocs/all_stories_list/all_stories_list_bloc.dart';
 import 'package:flutter_story_app/blocs/favorites_list/favorites_list_bloc.dart';
@@ -14,6 +13,7 @@ import 'package:flutter_story_app/repositories/stories_repository.dart';
 import 'package:flutter_story_app/repositories/tags_repository.dart';
 import 'package:flutter_story_app/utils/network_info.dart';
 import 'package:get_it/get_it.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final sl = GetIt.instance; //sl is referred to as Service Locator
@@ -31,10 +31,10 @@ Future<void> init() async {
     () => FavoriteCheckerBloc(),
   );
   sl.registerFactory(
-    () => FontSizeBloc(),
+    () => FontSizeBloc(0),
   );
   sl.registerFactory(
-    () => PageControllerBloc(),
+    () => PageControllerBloc(0),
   );
   sl.registerFactory(
     () => ReadingModeBloc(),
@@ -76,7 +76,7 @@ Future<void> init() async {
   final SharedPreferences sharedPreferences =
       await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);
-  sl.registerLazySingleton(() => DataConnectionChecker());
+  sl.registerLazySingleton(() => InternetConnectionChecker());
   sl.registerLazySingleton(() => Dio()..interceptors.add(LogInterceptor()));
-  sl.registerLazySingleton(() => RestClient(sl()));
+  sl.registerLazySingleton(() => RestClient(sl(), baseUrl: ''));
 }

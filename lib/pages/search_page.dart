@@ -65,7 +65,7 @@ class _SearchPageState extends State<SearchPage> {
               height: 130,
               child: LoadingIndicator(
                 indicatorType: Indicator.ballClipRotateMultiple,
-                color: Colors.white70,
+                colors: [Colors.white70],
               ),
             ),
           );
@@ -83,7 +83,7 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   Padding(padding: EdgeInsets.only(top: 10),),
                   Text("Sorry! Nothing found",
-                  style: CustomTheme.mainTheme.textTheme.body1,),
+                  style: CustomTheme.mainTheme.textTheme.bodyText1,),
                 ],
               ),
             ),
@@ -149,7 +149,7 @@ class _SearchPageState extends State<SearchPage> {
                     top: 16.0 + mediaQuery.padding.top, bottom: 16.0),
                 child: Text(
                   "Search\nSomething ?",
-                  style: CustomTheme.mainTheme.textTheme.headline,
+                  style: CustomTheme.mainTheme.textTheme.headline1,
                 ),
               );
             },

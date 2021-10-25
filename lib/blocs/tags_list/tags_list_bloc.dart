@@ -11,9 +11,9 @@ class TagsListBloc extends Bloc<TagsListEvent, TagsListState> {
   final NetworkInfo networkInfo;
 
   TagsListBloc({
-    @required this.tagsRepository,
-    @required this.networkInfo,
-  });
+    required this.tagsRepository,
+    required this.networkInfo,
+  }) : super(TagsListEmptyState());
 
   @override
   TagsListState get initialState => TagsListEmptyState();
@@ -21,14 +21,14 @@ class TagsListBloc extends Bloc<TagsListEvent, TagsListState> {
   @override
   Stream<TagsListState> mapEventToState(TagsListEvent event) async* {
     try {
-      List<Tag> tags;
+      List<Tag> tags = [];
 
       if (event is FetchTagsList) {
         tags = await tagsRepository.getAllTags();
       }
 
       if (event is DeleteList) {
-        tags = new List();
+        tags = [];
       }
 
       if (tags.length == 0) {
@@ -37,7 +37,7 @@ class TagsListBloc extends Bloc<TagsListEvent, TagsListState> {
         yield TagsListFetchedState(tags: tags);
       }
     } catch (error) {
-      yield TagsListErrorState(error: error);
+      yield TagsListErrorState(error: error.toString());
     }
   }
 }

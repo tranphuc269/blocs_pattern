@@ -21,7 +21,7 @@ class AllStoriesListFetchListByTag extends AllStoriesListEvent {
   final String tag;
   final String offset;
 
-  AllStoriesListFetchListByTag({@required this.offset, @required this.tag});
+  AllStoriesListFetchListByTag({required this.offset, required this.tag});
 
   @override
   List<Object> get props => [offset];

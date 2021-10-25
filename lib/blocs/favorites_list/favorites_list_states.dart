@@ -9,7 +9,7 @@ class FavoritesListLoadingState extends FavoritesListState {}
 class FavoritesListErrorState extends FavoritesListState {
   final String error;
 
-  FavoritesListErrorState({@required this.error});
+  FavoritesListErrorState({required this.error});
 
   @override
   List<Object> get props => [error];
@@ -18,7 +18,7 @@ class FavoritesListErrorState extends FavoritesListState {
 class FavoritesListFetchedState extends FavoritesListState {
   final List<Story> stories;
 
-  FavoritesListFetchedState({@required this.stories});
+  FavoritesListFetchedState({required this.stories});
 
   @override
   List<Object> get props => [stories];

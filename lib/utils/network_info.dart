@@ -1,14 +1,16 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:flutter/cupertino.dart';
+import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
+import 'package:connectivity/connectivity.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 abstract class NetworkInfo {
   Future<bool> get isConnected;
 }
 
 class NetworkInfoImpl implements NetworkInfo {
-  final DataConnectionChecker dataConnectionChecker;
+  final InternetConnectionChecker dataConnectionChecker;
 
-  NetworkInfoImpl({@required this.dataConnectionChecker});
+  NetworkInfoImpl({required this.dataConnectionChecker});
 
   @override
   Future<bool> get isConnected => dataConnectionChecker.hasConnection;

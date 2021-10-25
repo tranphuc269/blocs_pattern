@@ -12,9 +12,9 @@ class FavoritesListBloc extends Bloc<FavoritesListEvent, FavoritesListState> {
   final NetworkInfo networkInfo;
 
   FavoritesListBloc({
-    @required this.storiesRepository,
-    @required this.networkInfo,
-  });
+    required this.storiesRepository,
+    required this.networkInfo,
+  }) : super(FavoritesListFetchingState());
 
   @override
   FavoritesListState get initialState => FavoritesListFetchingState();
@@ -22,7 +22,7 @@ class FavoritesListBloc extends Bloc<FavoritesListEvent, FavoritesListState> {
   @override
   Stream<FavoritesListState> mapEventToState(FavoritesListEvent event) async* {
     try {
-      List<Story> latestStories;
+      List<Story> latestStories = [];
       if (event is FavoritesListFetchList) {
         yield FavoritesListLoadingState();
         List<String> favorites = await SharedPreference.getAllStoryIds();
@@ -39,7 +39,7 @@ class FavoritesListBloc extends Bloc<FavoritesListEvent, FavoritesListState> {
         yield FavoritesListFetchedState(stories: latestStories);
       }
     } catch (error) {
-      yield FavoritesListErrorState(error: error);
+      yield FavoritesListErrorState(error: error.toString());
     }
   }
 }
